@@ -8,11 +8,14 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 
+import { Courier_Prime } from 'next/font/google'
+
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: "Keshav's Website",
+    template: "%s | Keshav's Site",
   },
   description: 'This is my portfolio.',
   openGraph: {
@@ -36,7 +39,9 @@ export const metadata: Metadata = {
   },
 }
 
+  
 const cx = (...classes) => classes.filter(Boolean).join(' ')
+
 
 export default function RootLayout({
   children,
@@ -48,8 +53,7 @@ export default function RootLayout({
       lang="en"
       className={cx(
         'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
+
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
