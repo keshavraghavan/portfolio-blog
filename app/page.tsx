@@ -2,6 +2,7 @@ import { BlogPosts } from 'app/components/posts'
 import { useState, useEffect } from 'react';
 import { Courier_Prime } from 'next/font/google';
 
+
 const courier = Courier_Prime({
   subsets: ['latin'],
   variable: '--font-courier',
