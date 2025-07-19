@@ -1,7 +1,6 @@
 import { BlogPosts } from 'app/components/posts'
 import { useState, useEffect } from 'react';
 import { Courier_Prime } from 'next/font/google';
-import { PDFViewer } from '@react-pdf/renderer';
 
 const courier = Courier_Prime({
   subsets: ['latin'],

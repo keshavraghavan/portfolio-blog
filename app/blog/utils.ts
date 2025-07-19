@@ -63,6 +63,10 @@ export function formatDate(date: string, includeRelative = false) {
   }
   let targetDate = new Date(date)
 
+  if (isNaN(targetDate.getTime())) {
+    return ''
+  }
+
   let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
   let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
   let daysAgo = currentDate.getDate() - targetDate.getDate()
