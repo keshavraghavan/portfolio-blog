@@ -23,7 +23,7 @@ export default function Page() {
         I wanted to make this page to not showcase my technical talent, but rather my talent and passion for things outside of my career, 
         and as a place for me to improve my writing, my skills as an engineer, and my ability to be a musician. More importantly, I want to use this as
         a place to reflect - rather to find meaning in the things I do, and to find a place to express myself.
-        I hope that you enjoy this page and find something of value in here, for wahatever reason you may have come here.
+        I hope that you enjoy this page and find something of value in here, for whatever reason you may have come here.
 
         {/* this is horrible, i need to recall how to add spacing without using breaks. */}
         <br /> <br />
