@@ -55,10 +55,17 @@ export function getBlogPosts() {
 
 export function formatDate(date: string, includeRelative = false) {
   let currentDate = new Date()
+  if (typeof date !== 'string') {
+    return ''
+  }
   if (!date.includes('T')) {
     date = `${date}T00:00:00`
   }
   let targetDate = new Date(date)
+
+  if (isNaN(targetDate.getTime())) {
+    return ''
+  }
 
   let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
   let monthsAgo = currentDate.getMonth() - targetDate.getMonth()

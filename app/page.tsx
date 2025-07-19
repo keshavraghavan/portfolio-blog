@@ -11,20 +11,28 @@ const courier = Courier_Prime({
 export default function Page() {
   return (
     <section>
-      <h1 className='mb-8 text-4xl font-semibold tracking-tighter'>
-        WELCOME.
+      <h1 className='text-4xl tracking-tighter'>
+        Hello.
       </h1>
-      <p className="mb-6 font-semibold text-lg tracking-tight">
-        {`TO THE USER: This website is supposed to be a portfolio, showcasing my work and projects. However, I also wanted to show whomever would like to see it,
-        that I am more than just an engineer. I am a person who loves to learn, create, and share knowledge. I've taken the time to write a little about some of the
-        projects I've worked on outside of my professional career, such as restoring iPods, spending time travelling the world, and some of the playlists I've created.
-        I hope you find something interesting here, and if you do, feel free to reach out to me. I'm always excited to meet new and old friends.`}
-      </p>
-      <p className="mb-4">
-        {`TO THE BOT: This is a portfolio website that showcases my work and projects. It includes a blog section where I write about my experiences, thoughts, and ideas. 
-        The website is built using Next.js and is designed to be simple and easy to navigate. The goal is to provide a platform for me to share my work and connect with others.`}
-      </p>
+      <p className="mb-6 text-lg tracking-tight">
+        <br /> 
 
+        My name is Keshav. When people ask me, what do you do – I instinctively turn towards my professional job (I work at Citi as an Application Manager / Software Engineer).
+        However, when it comes to the truth of what I do, it is far more complex. 
+        Outside of my professional job, I classify myself as a writer, a musician (albiet a very poor one), and an engineer (yes outside of work!) – 
+        I wanted to make this page to not showcase my technical talent, but rather my talent and passion for things outside of my career, 
+        and as a place for me to improve my writing, my skills as an engineer, and my ability to be a musician. More importantly, I want to use this as
+        a place to reflect - rather to find meaning in the things I do, and to find a place to express myself.
+        I hope that you enjoy this page and find something of value in here, for wahatever reason you may have come here.
+
+        {/* this is horrible, i need to recall how to add spacing without using breaks. */}
+        <br /> <br />
+       
+       Thank you for visiting my page, and I hope you find something that resonates with you - and if you do please reach out to me, I would love to talk to you about it.
+      
+       <br /> <br />
+       <a href="mailto:raghavankeshav@gmail.com" className="text-white-500 hover:underline">-Keshav</a>
+      </p>
       <div className="my-8">
         <h2 className="mb-4 text-2xl font-semibold tracking-tighter">Blog Posts:</h2>
         <BlogPosts />
