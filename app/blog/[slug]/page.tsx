@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 export function generateMetadata({ params }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) {
-    return
+    notFound()
   }
 
   let {
@@ -82,11 +82,11 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+      <div className="flex justify-between items-baseline mb-8">
+        <h1 className="title font-semibold text-2xl tracking-tighter">
+          {post.metadata.title}
+        </h1>
+        <p className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap">
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
