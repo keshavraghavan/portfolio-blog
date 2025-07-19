@@ -19,7 +19,7 @@ export default function Page() {
 
         My name is Keshav. When people ask me, what do you do – I instinctively turn towards my professional job (I work at Citi as an Application Manager / Software Engineer).
         However, when it comes to the truth of what I do, it is far more complex. 
-        Outside of my professional job, I classify myself as a writer, a musician (albiet a very poor one), and an engineer (yes outside of work!) – 
+        Outside of my professional job, I classify myself as a writer, a musician (albiet a very poor one), and an engineer – 
         I wanted to make this page to not showcase my technical talent, but rather my talent and passion for things outside of my career, 
         and as a place for me to improve my writing, my skills as an engineer, and my ability to be a musician. More importantly, I want to use this as
         a place to reflect - rather to find meaning in the things I do, and to find a place to express myself.
