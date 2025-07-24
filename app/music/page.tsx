@@ -9,8 +9,8 @@ export default function MusicPage() {
             < br />
             This page contains a collection of music that I have curated on Spotify.
             I have a passion for music and enjoy exploring different genres and artists.
-            Below are links to my playlists on both platforms. Feel free to check them out and discover
-            some of my favorite tracks. If you have any recommendations or want to share your own playlists
+            Feel free to check them out and discover some of my favorite tracks. 
+            If you have any recommendations or want to share your own playlists
             with me, please reach out!
         </p>
 
