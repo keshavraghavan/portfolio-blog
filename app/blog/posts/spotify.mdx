@@ -6,18 +6,25 @@ summary: Spotify: streaming, playlists, algorithms, microservices, personalizati
 
 You most likely have the application installed, or at the very least have been asked to use it.
 
-
 Spotify: one of the biggest magnets of streaming since their launch in 2008. You may think of this as an obvious idea now, for streaming music to be the standard, but in 2008 that was not even close to the case. Music piracy was the standard practically, with people downloading songs from places like Napster and LimeWire.
 The idea of Spotify was simple in hindsight: you could use the internet to stream music instead of needing to download songs or commit a felony just to listen to the track of the month.
 When it launched in the United States in 2011, it soared to the top of the charts. Its most unique feature is still its best: playlists. Playlists full of suggested songs, personalized for the user, unlike anything else the industry had at the time. Instead of you picking and choosing every song yourself, Spotify used an algorithm to pull apart your library and build a basic system to track your interests.
 Side note: think of the metadata a song has — Artist, Album, Track Length, Genre, Year Released. Using just that, imagine how many songs could be flagged as possibilities for you, based on how often you listen, skip, or scrub through a track. Not to mention, looking at Genre trends (say you can see what Billboard 100 artists are peaking) and then finding music from the same timeframe you’re listening to. All of it goes in the playlists that they ‘curate’ for you.
  
 ## How does Spotify work?
+---
+To take a step back, you need to understand audio classifications and quality compression. the article here should help provide more context as to how audio formats work: ([How Apple Changed Audio Formatting](./audio-formats))
 
-To take a step back, you need to understand audio classifications and quality compression (see link to article here for more info).
+
 If you understand audio files, keep going. Spotify uses something in the tech industry called microservices. Think of it as a bunch of small, broken-up services and tools. That way, when you’re doing a very specific task, it’s quick, because only one piece of code is used to support that feature. The goal here is speed, but it also makes creating new features easier.
 So how does Spotify host their audio files? Unlike the standard formats we’ve been talking about (AAC, WAV), Spotify uses an open-source format called OGG Vorbis. I’ll make a separate article on OGG Vorbis since it’s a complicated, open-source system designed as a non-profit project.
 
 ## What does it all mean?
+---
 A lot of people ask what does this actually mean? How does this impact you, the customer?
 The architecture behind Spotify highlights how open-source platforms and smart design can reshape industries. At the end of the day, Spotify’s solution was simple: bring streaming audio to the masses but add in playlists and personal curation. That twist created a unique listening experience that was (and arguably still is) more personal than anything else out there.
+
+
+Side note: Spotify’s APIs (Application Programming Interface) let third-party developers build apps that work off your listening data. There are dozens of these out there, and I even found one that shows what I’m listening to in real time.
+
+[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=keshavrs&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=false)](https://spotify-github-profile.kittinanx.com/api/view?uid=keshavrs&redirect=true)
