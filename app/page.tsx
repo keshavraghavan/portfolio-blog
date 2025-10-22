@@ -17,7 +17,7 @@ export default function Page() {
       <p className="mb-6 text-lg tracking-tight">
         <br /> 
 
-        My name is Keshav. When people ask me, what do you do – I instinctively turn towards my professional job (I work at Citi as an Application Manager / Software Engineer).
+        My name is Keshav. When people ask me, what do you do – I instinctively turn towards my professional job.
         However, when it comes to the truth of what I do, it is far more complex. 
         Outside of my professional job, I classify myself as a writer, a musician (albiet a very poor one), and an engineer – 
         I wanted to make this page to not showcase my technical talent, but rather my talent and passion for things outside of my career, 
