@@ -17,13 +17,13 @@ export default function Page() {
       <p className="mb-6 text-lg tracking-tight">
         <br /> 
 
-        My name is Keshav. When people ask me, what do you do – I instinctively turn towards my professional job.
-        However, when it comes to the truth of what I do, it is far more complex. 
-        Outside of my professional job, I classify myself as a writer, a musician (albiet a very poor one), and an engineer – 
-        I wanted to make this page to not showcase my technical talent, but rather my talent and passion for things outside of my career, 
-        and as a place for me to improve my writing, my skills as an engineer, and my ability to be a musician. More importantly, I want to use this as
-        a place to reflect - rather to find meaning in the things I do, and to find a place to express myself.
-        I hope that you enjoy this page and find something of value in here, for whatever reason you may have come here.
+        My name is Keshav. When people ask what I do, I instinctively mention my professional role. 
+        But the truth is far more complex.Beyond my career, I'm a writer, a musician, and an engineer. 
+        I created this page not to showcase technical expertise, but to explore the passions that exist outside my job title. 
+
+        This is my space to sharpen my writing, develop my engineering skills, and grow as a musician.
+        More than anything, though, this is a place for reflection—to find meaning in what I do and to express myself freely. 
+        I hope you find something valuable here, whatever brought you to this page.
 
         {/* this is horrible, i need to recall how to add spacing without using breaks. */}
         <br /> <br />
