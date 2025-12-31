@@ -17,14 +17,11 @@ export default function Page() {
       <p className="mb-6 text-lg tracking-tight">
         <br /> 
 
-        My name is Keshav. When people ask me, what do you do – I instinctively turn towards my professional job (I work at Citi as an Application Manager / Software Engineer).
-        However, when it comes to the truth of what I do, it is far more complex. 
-        Outside of my professional job, I classify myself as a writer, a musician (albiet a very poor one), and an engineer – 
-        I wanted to make this page to not showcase my technical talent, but rather my talent and passion for things outside of my career, 
-        and as a place for me to improve my writing, my skills as an engineer, and my ability to be a musician. More importantly, I want to use this as
-        a place to reflect - rather to find meaning in the things I do, and to find a place to express myself.
-        I hope that you enjoy this page and find something of value in here, for whatever reason you may have come here.
-
+Hello, I’m Keshav.
+Like many of us, when someone asks “What do you do?”, I used to default to the safest, most conventional answer. Yet the fuller picture has always been more colorful: I’m a writer, a musician, and an engineer.
+This page isn’t about credentials or titles. It’s a personal playground where I refine my writing, tinker with engineering ideas, and explore music more intentionally.
+Most importantly, it’s a space for honest reflection—to uncover meaning in everyday pursuits and to share thoughts freely.
+Whatever brought you here, I’m glad you stopped by. I hope you discover something worth carrying with you.
         {/* this is horrible, i need to recall how to add spacing without using breaks. */}
         <br /> <br />
         
