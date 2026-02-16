@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
+import { CommentSection } from 'src/components/comments/CommentSection'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -93,6 +94,8 @@ export default function Blog({ params }) {
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+      <CommentSection slug={post.slug} />
     </section>
   )
 }
