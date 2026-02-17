@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 
-export function BlogPosts() {
-  let allBlogs = getBlogPosts()
+export async function BlogPosts() {
+  let allBlogs = await getBlogPosts()
 
   return (
     <div>
@@ -21,8 +21,8 @@ export function BlogPosts() {
             className="flex flex-col space-y-0 mb-4"
             href={`/blog/${post.slug}`}
           >
-            <div className="w-full flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-              <p className="text-neutral-600 dark:text-neutral-400 w-32 tabular-nums whitespace-nowrap">
+            <div className="w-full flex flex-col space-y-2 md:flex-row md:space-y-0">
+              <p className="text-neutral-600 dark:text-neutral-400 md:w-[160px] md:shrink-0 tabular-nums whitespace-nowrap">
                 {formatDate(post.metadata.publishedAt, false)}
               </p>
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
