@@ -1,5 +1,8 @@
 import fs from 'fs'
 import path from 'path'
+import { db } from 'src/db'
+import { posts } from 'src/db/schema'
+import { eq } from 'drizzle-orm'
 
 type Metadata = {
   title: string
@@ -54,8 +57,37 @@ function getMDXData(dir) {
   })
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+export async function getBlogPosts() {
+  const filePosts = getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+
+  let dbPosts: typeof filePosts = []
+  try {
+    const rows = await db
+      .select()
+      .from(posts)
+      .where(eq(posts.isDraft, false))
+
+    dbPosts = rows.map((row) => ({
+      metadata: {
+        title: row.title,
+        publishedAt: row.publishedAt,
+        summary: row.summary,
+        image: row.image ?? undefined,
+      },
+      slug: row.slug,
+      content: row.body,
+    }))
+  } catch (error) {
+    console.error('Failed to fetch posts from DB:', error)
+  }
+
+  const slugSet = new Set(dbPosts.map((p) => p.slug))
+  const merged = [
+    ...dbPosts,
+    ...filePosts.filter((p) => !slugSet.has(p.slug)),
+  ]
+
+  return merged
 }
 
 export function formatDate(date: string, includeRelative = false) {
