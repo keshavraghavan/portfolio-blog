@@ -24,8 +24,6 @@ export default function Footer() {
           </a>
           <a
             href="/rss"
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-accent hover:underline underline-offset-2 transition-colors"
           >
             RSS
