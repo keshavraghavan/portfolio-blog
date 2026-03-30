@@ -11,6 +11,7 @@ const commentSchema = z.object({
   body: z.string().min(1).max(2000),
   pageSlug: z.string().min(1),
   honeypot: z.string().optional(),
+  parentId: z.string().uuid().optional().nullable(),
 });
 
 const ratelimit = new Ratelimit({
@@ -67,7 +68,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { authorName, body, pageSlug, honeypot } = parsed.data;
+    const { authorName, body, pageSlug, honeypot, parentId } = parsed.data;
 
     if (honeypot) {
       return NextResponse.json(
@@ -78,7 +79,7 @@ export async function POST(request: NextRequest) {
 
     const [newComment] = await db
       .insert(comments)
-      .values({ authorName, body, pageSlug })
+      .values({ authorName, body, pageSlug, parentId: parentId ?? null })
       .returning();
 
     return NextResponse.json(newComment, { status: 201 });

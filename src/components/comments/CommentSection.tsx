@@ -14,6 +14,10 @@ export function CommentSection({ slug }: { slug: string }) {
     fetcher
   );
   const [showToast, setShowToast] = useState(false);
+  const [replyingTo, setReplyingTo] = useState<{
+    id: string;
+    name: string;
+  } | null>(null);
 
   function handleSuccess() {
     mutate();
@@ -21,29 +25,80 @@ export function CommentSection({ slug }: { slug: string }) {
     setTimeout(() => setShowToast(false), 5000);
   }
 
+  const topLevel = (comments ?? []).filter((c) => !c.parentId);
+  const repliesById = (comments ?? [])
+    .filter((c) => c.parentId)
+    .reduce<Record<string, Comment[]>>((acc, r) => {
+      acc[r.parentId!] = [...(acc[r.parentId!] ?? []), r];
+      return acc;
+    }, {});
+
+  const commentCount = comments?.length ?? 0;
+
   return (
-    <section className="mt-8">
-      <h2 className="font-semibold text-2xl tracking-tighter mb-8">
-        Comments{comments && comments.length > 0 ? ` (${comments.length})` : ''}
-      </h2>
+    <section>
+      <div className="flex items-center gap-3 mb-6">
+        <span className="font-courier text-xs uppercase tracking-widest text-muted whitespace-nowrap">
+          Discussion
+        </span>
+        <div className="flex-1 h-px bg-warm-border dark:bg-dark-border" />
+        {commentCount > 0 && (
+          <span className="font-courier text-xs text-muted">
+            {commentCount} {commentCount === 1 ? 'comment' : 'comments'}
+          </span>
+        )}
+      </div>
 
       {showToast && (
-        <div className="mb-6 px-3 py-2 text-sm border border-neutral-200 dark:border-neutral-700 rounded-lg text-neutral-600 dark:text-neutral-300">
+        <div className="mb-4 px-3 py-2 text-sm border border-warm-border dark:border-dark-border rounded-lg text-muted font-courier">
           Comment submitted &ndash; awaiting approval.
         </div>
       )}
 
-      <CommentForm slug={slug} onSuccess={handleSuccess} />
+      {!replyingTo && (
+        <div className="mb-6">
+          <CommentForm slug={slug} onSuccess={handleSuccess} />
+        </div>
+      )}
 
-      {comments && comments.length > 0 ? (
-        comments.map((comment) => (
-          <CommentCard key={comment.id} comment={comment} />
-        ))
+      {topLevel.length > 0 ? (
+        <div className="flex flex-col gap-4">
+          {topLevel.map((comment) => (
+            <div key={comment.id}>
+              <CommentCard
+                comment={comment}
+                onReply={(id, name) => setReplyingTo({ id, name })}
+              />
+              {(repliesById[comment.id] ?? []).map((reply) => (
+                <div key={reply.id} className="mt-3">
+                  <CommentCard comment={reply} isNested />
+                </div>
+              ))}
+              {replyingTo?.id === comment.id && (
+                <div className="mt-3 ml-6">
+                  <CommentForm
+                    slug={slug}
+                    onSuccess={handleSuccess}
+                    parentId={replyingTo.id}
+                    replyingToName={replyingTo.name}
+                    onCancelReply={() => setReplyingTo(null)}
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       ) : comments && comments.length === 0 ? (
-        <p className="text-neutral-600 dark:text-neutral-400">
+        <p className="text-sm text-muted">
           No comments yet. Be the first to share your thoughts.
         </p>
       ) : null}
+
+      {replyingTo && (
+        <div className="mt-6">
+          <CommentForm slug={slug} onSuccess={handleSuccess} />
+        </div>
+      )}
     </section>
   );
 }
