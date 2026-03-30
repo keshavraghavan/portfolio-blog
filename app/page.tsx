@@ -1,15 +1,9 @@
 import Link from 'next/link'
-import { getBlogPosts } from 'app/blog/utils'
-
-function formatShortDate(dateStr: string): string {
-  const date = new Date(`${dateStr}T00:00:00`)
-  if (isNaN(date.getTime())) return ''
-  return date.toLocaleString('en-us', { month: 'short', year: 'numeric' })
-}
+import { getBlogPosts, formatDate } from 'app/blog/utils'
 
 export default async function Page() {
   const allPosts = await getBlogPosts()
-  const featuredPosts = allPosts
+  const featuredPosts = [...allPosts]
     .sort(
       (a, b) =>
         new Date(b.metadata.publishedAt).getTime() -
@@ -18,7 +12,7 @@ export default async function Page() {
     .slice(0, 4)
 
   return (
-    <section className="max-w-3xl mx-auto w-full">
+    <main className="max-w-3xl mx-auto w-full">
       {/* Hero */}
       <div className="mb-12">
         <h1 className="font-courier text-3xl text-near-black dark:text-cream leading-tight tracking-tight mb-4">
@@ -59,14 +53,16 @@ export default async function Page() {
               className="card-base p-5 block group"
             >
               <p className="font-courier text-xs text-muted mb-2">
-                {formatShortDate(post.metadata.publishedAt)}
+                {formatDate(post.metadata.publishedAt, false)}
               </p>
               <h3 className="font-courier text-base text-near-black dark:text-cream leading-snug mb-2 group-hover:text-accent transition-colors">
                 {post.metadata.title}
               </h3>
-              <p className="text-sm text-muted leading-relaxed line-clamp-2">
-                {post.metadata.summary}
-              </p>
+              {post.metadata.summary && (
+                <p className="text-sm text-muted leading-relaxed line-clamp-2">
+                  {post.metadata.summary}
+                </p>
+              )}
             </Link>
           ))}
         </div>
@@ -140,6 +136,6 @@ export default async function Page() {
           </div>
         </div>
       </div>
-    </section>
+    </main>
   )
 }
