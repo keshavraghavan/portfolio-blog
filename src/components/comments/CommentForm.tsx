@@ -78,9 +78,7 @@ export function CommentForm({
         }}
         className="w-full border border-dashed border-warm-border dark:border-dark-border rounded-xl p-4 text-sm text-muted hover:border-muted transition-colors text-left"
       >
-        {replyingToName
-          ? `Replying to ${replyingToName}...`
-          : 'Join the discussion...'}
+        Join the discussion...
       </button>
     );
   }

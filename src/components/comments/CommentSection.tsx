@@ -93,12 +93,6 @@ export function CommentSection({ slug }: { slug: string }) {
           No comments yet. Be the first to share your thoughts.
         </p>
       ) : null}
-
-      {replyingTo && (
-        <div className="mt-6">
-          <CommentForm slug={slug} onSuccess={handleSuccess} />
-        </div>
-      )}
     </section>
   );
 }
