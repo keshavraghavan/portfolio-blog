@@ -92,7 +92,7 @@ function Timeline({ entries }: { entries: TimelineEntry[] }) {
   return (
     <div>
       {entries.map((entry, index) => (
-        <div key={index} className="flex gap-4 mb-8">
+        <div key={`${entry.company}-${entry.period}`} className="flex gap-4 mb-8">
           <div className="flex flex-col items-center pt-1 shrink-0">
             <div
               className={`w-2.5 h-2.5 rounded-full shrink-0 ${

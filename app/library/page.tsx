@@ -71,6 +71,7 @@ export default function LibraryPage() {
           <button
             key={cat}
             onClick={() => setActive(cat)}
+            aria-pressed={active === cat}
             className={[
               'flex-1 py-2 text-xs font-courier transition-colors',
               i > 0 ? 'border-l border-warm-border dark:border-dark-border' : '',
@@ -113,6 +114,7 @@ export default function LibraryPage() {
               href={book.href}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${book.title} (opens in new tab)`}
             >
               {inner}
             </a>
