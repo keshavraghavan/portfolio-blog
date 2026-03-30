@@ -11,18 +11,18 @@ export default function AboutPage() {
       </h1>
 
       <div className="space-y-4">
-        <p className="text-base text-warm-dark dark:text-neutral-200 leading-relaxed">
+        <p className="text-base text-warm-dark dark:text-cream leading-relaxed">
           I&rsquo;m Keshav &mdash; a writer, musician, and engineer based in Dallas, TX.
           I work in digital product at Citibank, where I help build and ship software
           that reaches millions of people.
         </p>
-        <p className="text-base text-warm-dark dark:text-neutral-200 leading-relaxed">
+        <p className="text-base text-warm-dark dark:text-cream leading-relaxed">
           This site is a personal playground where I refine my writing, tinker with
           engineering ideas, and explore music more intentionally. It&rsquo;s a space
           for honest reflection &mdash; to uncover meaning in everyday pursuits and
           share thoughts freely.
         </p>
-        <p className="text-base text-warm-dark dark:text-neutral-200 leading-relaxed">
+        <p className="text-base text-warm-dark dark:text-cream leading-relaxed">
           Whatever brought you here, I&rsquo;m glad you stopped by.
         </p>
       </div>

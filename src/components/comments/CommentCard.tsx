@@ -31,7 +31,7 @@ export function CommentCard({ comment, onReply, isNested = false }: CommentCardP
           {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true })}
         </span>
       </div>
-      <p className="text-sm text-warm-dark dark:text-neutral-200 leading-relaxed whitespace-pre-wrap">
+      <p className="text-sm text-warm-dark dark:text-cream leading-relaxed whitespace-pre-wrap">
         {comment.body}
       </p>
       {!isNested && onReply && (

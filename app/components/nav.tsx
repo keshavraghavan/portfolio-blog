@@ -9,6 +9,7 @@ const navItems: Record<string, string> = {
   '/resume': 'resume',
   '/library': 'library',
   '/music': 'music',
+  '/about': 'about',
 }
 
 export function Navbar() {

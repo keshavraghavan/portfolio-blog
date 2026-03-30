@@ -43,9 +43,7 @@ function readMDXFile(filePath) {
 
 function getMDXData(dir) {
   let mdxFiles = getMDXFiles(dir)
-  console.log('Found MDX files:', mdxFiles);
   return mdxFiles.map((file) => {
-    console.log('Processing file:', file);
     let { metadata, content } = readMDXFile(path.join(dir, file))
     let slug = path.basename(file, path.extname(file))
 

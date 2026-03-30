@@ -5,7 +5,7 @@ export function getSecret(): string {
 
 export function setSecret(value: string) {
   const expires = new Date(Date.now() + 24 * 60 * 60 * 1000).toUTCString();
-  document.cookie = `admin-secret=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Strict`;
+  document.cookie = `admin-secret=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Strict; Secure`;
 }
 
 export function clearSecret() {

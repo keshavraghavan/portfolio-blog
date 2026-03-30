@@ -9,7 +9,7 @@ import { eq, asc, and } from 'drizzle-orm';
 const commentSchema = z.object({
   authorName: z.string().min(1).max(100),
   body: z.string().min(1).max(2000),
-  pageSlug: z.string().min(1),
+  pageSlug: z.string().min(1).max(200).regex(/^[a-z0-9-]+$/),
   honeypot: z.string().optional(),
   parentId: z.string().uuid().optional().nullable(),
 });

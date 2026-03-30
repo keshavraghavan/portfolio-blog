@@ -32,6 +32,7 @@ export default function MusicPage() {
               </p>
             </div>
             <iframe
+              title={playlist.name}
               src={playlist.src}
               width="100%"
               height="152"
