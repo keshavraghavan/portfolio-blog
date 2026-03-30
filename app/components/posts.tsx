@@ -1,36 +1,38 @@
 import Link from 'next/link'
-import { formatDate, getBlogPosts } from 'app/blog/utils'
+import { getBlogPosts } from 'app/blog/utils'
+import { formatDate } from 'app/blog/utils'
 
 export async function BlogPosts() {
-  let allBlogs = await getBlogPosts()
+  const allBlogs = await getBlogPosts()
+  const sorted = [...allBlogs].sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+  )
 
   return (
-    <div>
-      {allBlogs
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1
-          }
-          return 1
-        })
-        .map((post) => (
-          <Link
-            key={post.slug}
-            className="flex flex-col space-y-0 mb-4"
-            href={`/blog/${post.slug}`}
-          >
-            <div className="w-full flex flex-col space-y-2 md:flex-row md:space-y-0">
-              <p className="text-neutral-600 dark:text-neutral-400 md:w-[160px] md:shrink-0 tabular-nums whitespace-nowrap">
-                {formatDate(post.metadata.publishedAt, false)}
+    <div className="border-t border-warm-border dark:border-dark-border">
+      {sorted.map((post) => (
+        <Link
+          key={post.slug}
+          href={`/blog/${post.slug}`}
+          className="group flex justify-between items-start gap-4 py-5 border-b border-warm-border dark:border-dark-border hover:bg-surface-muted dark:hover:bg-dark-surface-muted transition-colors px-1"
+        >
+          <div className="flex-1 min-w-0">
+            <p className="font-courier text-sm text-near-black dark:text-cream leading-snug group-hover:text-accent transition-colors">
+              {post.metadata.title}
+            </p>
+            {post.metadata.summary && (
+              <p className="text-xs text-muted mt-1 leading-relaxed line-clamp-2">
+                {post.metadata.summary}
               </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {post.metadata.title}
-              </p>
-            </div>
-          </Link>
-        ))}
+            )}
+          </div>
+          <p className="font-courier text-xs text-muted whitespace-nowrap shrink-0 mt-0.5">
+            {formatDate(post.metadata.publishedAt, false)}
+          </p>
+        </Link>
+      ))}
     </div>
   )
 }
