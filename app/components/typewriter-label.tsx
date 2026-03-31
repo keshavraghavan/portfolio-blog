@@ -6,6 +6,7 @@ const PHRASES = ['builder', 'reader', 'writer', 'always learning']
 const TYPE_MS = 60
 const DELETE_MS = 40
 const PAUSE_MS = 1800
+const CURSOR_ANIMATION = 'blink 1s step-end infinite'
 
 export default function TypewriterLabel() {
   const [displayText, setDisplayText] = useState('')
@@ -44,8 +45,9 @@ export default function TypewriterLabel() {
     <p className="font-courier text-sm text-muted mb-1">
       {displayText}
       <span
+        aria-hidden="true"
         className="inline-block w-px h-[0.9em] bg-muted ml-[2px] align-middle"
-        style={{ animation: 'blink 1s step-end infinite' }}
+        style={{ animation: CURSOR_ANIMATION }}
       />
     </p>
   )
