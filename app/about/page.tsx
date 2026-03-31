@@ -49,7 +49,7 @@ export default function AboutPage() {
             LinkedIn &rarr;
           </a>
           <a
-            href="mailto:raghavankeshav@gmail.com"
+            href="mailto:me@keshavraghavan.com"
             className="text-sm text-accent hover:underline underline-offset-2 transition-colors"
           >
             Email &rarr;
