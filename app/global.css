@@ -7,7 +7,8 @@
   --color-near-black: #1A1A1A;
   --color-warm-dark: #4A4540;
   --color-muted: #8B8580;
-  --color-accent: #C7622A;
+  --color-accent: #87ae73;
+  --color-accent-secondary: #738caa;
   --color-surface-muted: #F0EDE8;
   --color-dark-surface: #242424;
   --color-dark-border: #333333;
@@ -15,7 +16,7 @@
 }
 
 ::selection {
-  background-color: #C7622A;
+  background-color: #87ae73;
   color: #FAF8F5;
 }
 
