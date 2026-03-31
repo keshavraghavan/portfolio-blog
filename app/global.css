@@ -20,6 +20,11 @@
   color: #FAF8F5;
 }
 
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 :root {
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
