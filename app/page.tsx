@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getBlogPosts, formatDate } from 'app/blog/utils'
 import TypewriterLabel from 'app/components/typewriter-label'
+import HeroHeading from 'app/components/hero-heading'
 
 export default async function Page() {
   const allPosts = await getBlogPosts()
@@ -16,9 +17,7 @@ export default async function Page() {
     <main className="max-w-3xl mx-auto w-full">
       {/* Hero */}
       <div className="mb-12">
-        <h1 className="font-courier text-3xl text-near-black dark:text-cream leading-tight tracking-tight mb-1">
-          Hello. I&rsquo;m Keshav.
-        </h1>
+        <HeroHeading />
         <TypewriterLabel />
         <p className="text-base text-warm-dark dark:text-muted leading-relaxed max-w-xl">
           I write about technology, music, and the things I&rsquo;m learning.
