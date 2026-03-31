@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getBlogPosts, formatDate } from 'app/blog/utils'
 import TypewriterLabel from 'app/components/typewriter-label'
 import HeroHeading from 'app/components/hero-heading'
+import MusicWidget from 'src/components/music/MusicWidget'
 
 export default async function Page() {
   const allPosts = await getBlogPosts()
@@ -78,7 +79,7 @@ export default async function Page() {
       </div>
 
       {/* What I'm Into */}
-      <div>
+      <div className="mb-12">
         <div className="editorial-divider">
           <span>What I&rsquo;m Into</span>
         </div>
@@ -136,6 +137,13 @@ export default async function Page() {
             </a>
           </div>
         </div>
+      </div>
+
+      <div>
+        <div className="editorial-divider">
+          <span>Listening Now</span>
+        </div>
+        <MusicWidget />
       </div>
     </main>
   )
