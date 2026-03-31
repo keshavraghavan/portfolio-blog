@@ -1,46 +1,40 @@
-import Link from 'next/link'
+'use client'
 
-const navItems = {
-  '/': {
-    name: 'home',
-  },
-  '/blog': {
-    name: 'blogs',
-  },
-  '/resume': {
-    name: 'resume',
-  },
-  '/library': {
-    name: 'library',
-  },
-  '/music': {
-    name: 'music'
-  },
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+const navItems: Record<string, string> = {
+  '/': 'home',
+  '/blog': 'blog',
+  '/resume': 'resume',
+  '/library': 'library',
+  '/music': 'music',
+  '/about': 'about',
 }
 
 export function Navbar() {
+  const pathname = usePathname()
+
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                >
-                  {name}
-                </Link>
-              )
-            })}
-          </div>
-        </nav>
-      </div>
-    </aside>
+    <nav className="flex items-center gap-5 mb-12 border-b border-warm-border dark:border-dark-border pb-4 max-w-3xl mx-auto w-full">
+      {Object.entries(navItems).map(([path, name]) => {
+        const isActive =
+          path === '/' ? pathname === '/' : pathname.startsWith(path)
+        return (
+          <Link
+            key={path}
+            href={path}
+            className={[
+              'text-sm transition-colors duration-200',
+              isActive
+                ? 'text-near-black dark:text-cream underline decoration-accent underline-offset-4 decoration-2'
+                : 'text-muted hover:text-accent-secondary',
+            ].join(' ')}
+          >
+            {name}
+          </Link>
+        )
+      })}
+    </nav>
   )
 }

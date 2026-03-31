@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import useSWR from 'swr';
 import { formatDistanceToNow } from 'date-fns';
 import { Comment } from 'src/types/comment';
-import { getSecret, setSecret, clearSecret, fetcher } from 'src/lib/admin-auth';
+import { getSecret, setSecret, clearSecret, fetcher, adminFetch } from 'src/lib/admin-auth';
 
 function LoginForm({ onLogin }: { onLogin: () => void }) {
   const [password, setPassword] = useState('');
@@ -125,18 +125,6 @@ function CommentsDashboard() {
   const pending = comments?.filter((c) => !c.isApproved) ?? [];
   const approved = comments?.filter((c) => c.isApproved) ?? [];
   const shown = activeTab === 'pending' ? pending : approved;
-
-  const adminFetch = useCallback(
-    (url: string, options: RequestInit) =>
-      fetch(url, {
-        ...options,
-        headers: {
-          ...options.headers,
-          'x-admin-secret': getSecret(),
-        },
-      }),
-    []
-  );
 
   async function handleApprove(id: string) {
     const optimistic = comments?.map((c) =>

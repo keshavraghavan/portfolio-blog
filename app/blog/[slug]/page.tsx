@@ -12,8 +12,13 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }) {
-  let post = (await getBlogPosts()).find((post) => post.slug === params.slug)
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  let post = (await getBlogPosts()).find((post) => post.slug === slug)
   if (!post) {
     notFound()
   }
@@ -52,50 +57,58 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function Blog({ params }) {
-  let post = (await getBlogPosts()).find((post) => post.slug === params.slug)
+export default async function Blog({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  let post = (await getBlogPosts()).find((post) => post.slug === slug)
 
   if (!post) {
     notFound()
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.metadata.title,
+    datePublished: post.metadata.publishedAt,
+    dateModified: post.metadata.publishedAt,
+    description: post.metadata.summary,
+    image: post.metadata.image
+      ? `${baseUrl}${post.metadata.image}`
+      : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+    url: `${baseUrl}/blog/${post.slug}`,
+    author: { '@type': 'Person', name: 'Keshav Raghavan' },
+  }
+
   return (
-    <section>
+    <section className="max-w-xl mx-auto w-full">
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
-            author: {
-              '@type': 'Person',
-              name: 'My Portfolio',
-            },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="flex justify-between items-baseline mb-8">
-        <h1 className="title font-semibold text-2xl tracking-tighter">
-          {post.metadata.title}
-        </h1>
-        <p className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap">
+
+      {/* Post header */}
+      <div className="mb-8">
+        <p className="font-courier text-xs text-muted mb-2">
           {formatDate(post.metadata.publishedAt)}
         </p>
+        <h1 className="font-courier text-2xl text-near-black dark:text-cream leading-snug tracking-tight title">
+          {post.metadata.title}
+        </h1>
+        <div className="mt-6 border-t border-warm-border dark:border-dark-border" />
       </div>
+
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
-      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-      <CommentSection slug={post.slug} />
+
+      <div className="mt-12">
+        <CommentSection slug={post.slug} />
+      </div>
     </section>
   )
 }
