@@ -101,7 +101,7 @@ export default async function Page() {
 
           {/* Listening */}
           <div className="card-base p-4">
-            <p className="text-xs uppercase tracking-widest text-accent mb-3 font-courier">
+            <p className="text-xs uppercase tracking-widest text-accent-secondary mb-3 font-courier">
               Listening
             </p>
             <p className="text-sm font-medium text-near-black dark:text-cream">
