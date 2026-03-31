@@ -20,6 +20,12 @@ export default function AdminLayout({
         >
           Posts
         </Link>
+        <Link
+          href="/admin/music"
+          className="text-sm font-medium tracking-tight text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+        >
+          Music
+        </Link>
       </nav>
       {children}
     </div>

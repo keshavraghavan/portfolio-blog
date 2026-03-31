@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
-import { baseUrl } from 'app/sitemap'
+import { baseUrl } from 'src/lib/site'
 import { CommentSection } from 'src/components/comments/CommentSection'
 
 export async function generateStaticParams() {
