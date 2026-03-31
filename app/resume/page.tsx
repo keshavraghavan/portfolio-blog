@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Resume',
-  description: 'Digital Product Analyst and engineer.',
+  description: 'Application manager and product-minded engineer.',
 }
 
 function SectionDivider({ label }: { label: string }) {
@@ -21,19 +21,33 @@ interface TimelineEntry {
 
 const experience: TimelineEntry[] = [
   {
-    title: 'Digital Product Analyst — Mortgage',
+    title: 'Application Manager — Mortgage',
     company: 'Citibank · Dallas, TX',
     period: 'March 2024 — Present',
     current: true,
     bullets: [
-      'Leading a cross-functional team managing 22 systems, resolving latency and API issues impacting 250+ users',
-      'Built interaction flows for a GenAI auditing platform, improving reliability and accuracy by 29%',
+      'Owned a 22-system mortgage portfolio, driving cross-functional collaboration across engineering, QA, and stakeholders',
+      'Led user stories and acceptance criteria for a GenAI platform, building an evaluation framework that improved accuracy by 29%',
       'Delivering $330,000 in annual savings by optimizing archival storage on database platforms',
-      'Implemented Glassbox and Adobe Analytics to enhance Citi Mortgage digital experience analytics',
-      'Collaborated with SaaS vendors to implement business tools that streamlined operations and overhead costs',
-      'Spearheading the use of Agentic AI within the SDLC process, reducing developer engineering time by 60%',
-      'Increased large-query performance by 42% using SQL stored procedures',
-      'Coordinating with business, QA, and engineering to fix vendor issues, reducing platform downtime by 15%',
+      'Implemented Glassbox and Adobe Analytics to enhance digital user experience with data-driven product recommendations',
+      'Spearheaded Agentic AI and prompt engineering adoption within the SDLC, reducing engineering time by 60%',
+      'Increased large-query performance by 42% through SQL stored procedures and API endpoint optimization',
+      'Managed support escalations and client issues end-to-end, coordinating engineering resolutions that reduced downtime by 15%',
+      'Authored API specs, technical documentation, and release notes while leading agile rituals including backlog grooming and sprints',
+    ],
+  },
+  {
+    title: 'Founder',
+    company: 'POSED',
+    period: 'November 2025 — Present',
+    current: true,
+    bullets: [
+      'Founded an ML-powered POS for thrift stores, defining MVP scope, user stories, and acceptance criteria from user feedback',
+      'Built an unstructured data pipeline with object detection and embedding models to generate vectorized price suggestions',
+      'Integrated product lookup via LLMs and prompt engineering to surface market-aligned pricing at checkout',
+      'Designed API endpoints and integrated Square Payments API with a custom price override system and model feedback loop',
+      'Wrote OpenAPI-compliant technical specs and architected MCP-compatible tooling for AI-assisted pricing workflows',
+      'Built the full-stack app in React, TypeScript, and PostgreSQL while managing Git, CI/CD, sprint milestones, and the product roadmap',
     ],
   },
   {
@@ -42,8 +56,18 @@ const experience: TimelineEntry[] = [
     period: 'June 2023 — August 2023',
     bullets: [
       'Developed UI features on Citibank Online, strengthening customer security and fraud prevention',
-      'Analyzed automotive sales datasets using Pandas and Tableau to reveal fuel-efficiency trends',
-      'Partnered with the Voice of Employee committee to lead initiatives improving team communication',
+      'Analyzed automotive sales datasets using Pandas and Tableau to reveal fuel-efficiency trends driving strategy',
+      'Partnered with Citi’s Voice of Employee committee to lead initiatives improving team communication',
+    ],
+  },
+  {
+    title: 'Lead — OnSked Web Application',
+    company: 'Amazech Solutions LLC · Plano, TX',
+    period: 'August 2023 — December 2023',
+    bullets: [
+      'Implemented a frontend UI using React.js and Material UI, ensuring a smooth user experience',
+      'Designed a custom backend service on Microsoft Azure using an Express.js RESTful API',
+      'Verified deliverables met quality standards and optimized data storage and retrieval for frontend responsiveness',
     ],
   },
   {
@@ -51,24 +75,9 @@ const experience: TimelineEntry[] = [
     company: '1051 Studios · Austin, TX',
     period: 'May 2017 — December 2023',
     bullets: [
-      'Streamlined the process of buying a new home while offering rebates to customers',
-      'Identified homebuilder pain points to prioritize high-value product improvements',
+      'Streamlined homebuying with customer rebates and identified builder pain points to drive product improvements',
       'Developed applications for Austin Resource Recovery to improve yard waste pickup efficiency',
       'Presented at City Hall before city officials, winning a pitch contest',
-    ],
-  },
-]
-
-const projects: TimelineEntry[] = [
-  {
-    title: 'Lead — OnSked Web Application',
-    company: 'Amazech Solutions LLC · Plano, TX',
-    period: 'August 2023 — December 2023',
-    bullets: [
-      'Verified deliverables met quality standards through comprehensive testing',
-      'Implemented a frontend UI using React.js and Material UI',
-      'Designed a custom backend service on Microsoft Azure using an Express.js RESTful API',
-      'Optimized data storage and retrieval to enhance frontend responsiveness',
     ],
   },
 ]
@@ -76,15 +85,28 @@ const projects: TimelineEntry[] = [
 const skills: { category: string; items: string[] }[] = [
   {
     category: 'Product Management',
-    items: ['Agile', 'Jira', 'Figma'],
+    items: [
+      'Agile',
+      'User Stories',
+      'Acceptance Criteria',
+      'Backlog Grooming',
+      'Sprint Coordination',
+      'Release Tracking',
+      'Jira',
+      'Confluence',
+    ],
   },
   {
     category: 'Frameworks / Languages',
-    items: ['JavaScript', 'Next.js', 'React', 'SQL', 'Express.js', 'Azure', 'Python'],
+    items: ['TypeScript', 'JavaScript', 'React', 'Next.js', 'Express.js', 'Python', 'SQL', 'OpenAPI'],
   },
   {
-    category: 'Data Analytics',
-    items: ['Tableau', 'Pandas'],
+    category: 'Tools & Infrastructure',
+    items: ['Git', 'Postman', 'PostgreSQL', 'Azure', 'Vercel', 'MCP', 'YAML/JSON'],
+  },
+  {
+    category: 'Data & Analytics',
+    items: ['Tableau', 'Pandas', 'Adobe Analytics', 'Prompt Engineering'],
   },
 ]
 
@@ -139,11 +161,11 @@ export default function ResumePage() {
           Resume
         </h1>
         <p className="text-sm text-muted mt-1">
-          Product-minded engineer who bridges business and technology.
+          Application manager and product-minded engineer bridging business, AI, and delivery.
         </p>
         <a
-          href="/keshav-resume.pdf"
-          download="keshav-resume.pdf"
+          href="/document_pdf.pdf"
+          download="document_pdf.pdf"
           className="text-sm text-accent hover:underline underline-offset-2 transition-colors mt-2 inline-block"
         >
           Download PDF &darr;
@@ -162,9 +184,6 @@ export default function ResumePage() {
 
       <SectionDivider label="Experience" />
       <Timeline entries={experience} />
-
-      <SectionDivider label="Projects" />
-      <Timeline entries={projects} />
 
       <SectionDivider label="Skills" />
       <div className="space-y-4">
