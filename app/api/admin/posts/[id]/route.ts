@@ -7,13 +7,22 @@ import { z } from 'zod';
 import { slugify } from 'src/lib/slugify';
 
 const UpdatePostSchema = z.object({
-  title: z.string().min(1).optional(),
-  summary: z.string().min(1).optional(),
-  body: z.string().min(1).optional(),
-  publishedAt: z.string().min(1).optional(),
+  title: z.string().optional(),
+  summary: z.string().optional(),
+  body: z.string().optional(),
+  publishedAt: z.string().optional(),
   image: z.string().optional().nullable(),
   isDraft: z.boolean().optional(),
 });
+
+function isBlank(value: string) {
+  return value.trim().length === 0;
+}
+
+function resolveSlug(title: string, id: string) {
+  const slug = slugify(title.trim());
+  return slug || `draft-${id}`;
+}
 
 function authorize(request: NextRequest) {
   const secret = request.headers.get('x-admin-secret');
@@ -60,6 +69,21 @@ export async function PUT(request: NextRequest, context: RouteContext) {
   try {
     const body = await request.json();
     const parsed = UpdatePostSchema.parse(body);
+    const [existingPost] = await db
+      .select()
+      .from(posts)
+      .where(eq(posts.id, id))
+      .limit(1);
+
+    if (!existingPost) {
+      return NextResponse.json({ error: 'Not found' }, { status: 404 });
+    }
+
+    const nextTitle = parsed.title ?? existingPost.title;
+    const nextSummary = parsed.summary ?? existingPost.summary;
+    const nextBody = parsed.body ?? existingPost.body;
+    const nextPublishedAt = parsed.publishedAt ?? existingPost.publishedAt;
+    const nextIsDraft = parsed.isDraft ?? existingPost.isDraft;
 
     const updates: Record<string, unknown> = {
       ...parsed,
@@ -67,19 +91,39 @@ export async function PUT(request: NextRequest, context: RouteContext) {
     };
 
     if (parsed.title) {
-      updates.slug = slugify(parsed.title);
+      updates.slug = resolveSlug(parsed.title, id);
+    }
 
-      const existing = await db
+    if (
+      !nextIsDraft &&
+      [nextTitle, nextSummary, nextBody, nextPublishedAt].some((value) =>
+        isBlank(value ?? '')
+      )
+    ) {
+      return NextResponse.json(
+        { error: 'Title, summary, body, and publish date are required to publish.' },
+        { status: 400 }
+      );
+    }
+
+    let resolvedSlug = (updates.slug as string | undefined) ?? existingPost.slug;
+    if (resolvedSlug !== existingPost.slug) {
+      const conflicting = await db
         .select({ id: posts.id })
         .from(posts)
-        .where(eq(posts.slug, updates.slug as string))
+        .where(eq(posts.slug, resolvedSlug))
         .limit(1);
 
-      if (existing.length > 0 && existing[0].id !== id) {
-        return NextResponse.json(
-          { error: 'A post with this slug already exists' },
-          { status: 409 }
-        );
+      if (conflicting.length > 0 && conflicting[0].id !== id) {
+        if (nextIsDraft) {
+          resolvedSlug = `${resolvedSlug}-${id.slice(0, 8)}`;
+          updates.slug = resolvedSlug;
+        } else {
+          return NextResponse.json(
+            { error: 'A post with this slug already exists' },
+            { status: 409 }
+          );
+        }
       }
     }
 

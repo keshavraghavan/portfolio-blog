@@ -145,7 +145,7 @@ function PostsDashboard() {
           >
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1">
               <span className="font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
-                {post.title}
+                {post.title || 'Untitled Draft'}
               </span>
               <span className="text-sm text-neutral-400 tabular-nums">
                 {post.publishedAt}

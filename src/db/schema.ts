@@ -4,6 +4,7 @@ import {
   text,
   timestamp,
   boolean,
+  integer,
   index,
 } from 'drizzle-orm/pg-core';
 
@@ -45,6 +46,24 @@ export const comments = pgTable(
   },
   (table) => [
     index('comments_page_slug_idx').on(table.pageSlug),
+  ]
+);
+
+export const pageViews = pgTable(
+  'page_views',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    pageSlug: text('page_slug').unique().notNull(),
+    viewCount: integer('view_count').default(0).notNull(),
+    createdAt: timestamp('created_at', { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+    updatedAt: timestamp('updated_at', { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [
+    index('page_views_page_slug_idx').on(table.pageSlug),
   ]
 );
 

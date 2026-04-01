@@ -3,6 +3,7 @@ import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'src/lib/site'
 import { CommentSection } from 'src/components/comments/CommentSection'
+import { PageViewCounter } from 'src/components/page-views/PageViewCounter'
 
 export async function generateStaticParams() {
   let posts = await getBlogPosts()
@@ -93,9 +94,12 @@ export default async function Blog({
 
       {/* Post header */}
       <div className="mb-8">
-        <p className="font-courier text-xs text-muted mb-2">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
+        <div className="mb-3 flex items-start justify-between gap-4">
+          <p className="font-courier text-xs text-muted pt-1">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+          <PageViewCounter slug={post.slug} />
+        </div>
         <h1 className="font-courier text-2xl text-near-black dark:text-cream leading-snug tracking-tight title">
           {post.metadata.title}
         </h1>
