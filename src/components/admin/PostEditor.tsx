@@ -197,6 +197,15 @@ export function PostEditor({ mode, postId }: PostEditorProps) {
         clearPersistedSnapshot();
       }
 
+      // After first save of a new post, transition to the edit URL so the
+      // 'admin-post-editor:new' key is no longer used — prevents future
+      // "New Post" visits from loading this draft.
+      if (mode === 'new' && !currentPostId) {
+        clearPersistedSnapshot();
+        router.replace(`/admin/posts/${savedPost.id}/edit`);
+        return;
+      }
+
       if (redirectOnSuccess) {
         router.push('/admin/posts');
       }
