@@ -21,78 +21,78 @@ interface TimelineEntry {
 
 const experience: TimelineEntry[] = [
   {
-    title: ‘Digital Software Analyst, Mortgage Lending’,
-    company: ‘Citibank · Dallas, TX’,
-    period: ‘March 2024 — Present’,
+    title: 'Digital Software Analyst, Mortgage Lending',
+    company: 'Citibank · Dallas, TX',
+    period: 'March 2024 — Present',
     current: true,
     bullets: [
-      ‘Owned 22 mortgage systems for 800+ users, maintaining 99.3% uptime across platforms’,
-      ‘Built Next.js dashboard for senior leadership tracking repository migration adoption and DORA metrics’,
-      ‘Redesigned MSSQL archival storage strategy, reducing infrastructure costs by $300k annually’,
-      ‘Cut delivery cycles from 3 months to 2.5 weeks, by utilizing Devin AI for SDLC procedures’,
-      ‘Scaled AI adoption across retail banking by training 50+ analysts and onboarding 6 teams’,
+      'Owned 22 mortgage systems for 800+ users, maintaining 99.3% uptime across platforms',
+      'Built Next.js dashboard for senior leadership tracking repository migration adoption and DORA metrics',
+      'Redesigned MSSQL archival storage strategy, reducing infrastructure costs by $300k annually',
+      'Cut delivery cycles from 3 months to 2.5 weeks, by utilizing Devin AI for SDLC procedures',
+      'Scaled AI adoption across retail banking by training 50+ analysts and onboarding 6 teams',
     ],
   },
   {
-    title: ‘Lead — OnSked Web Application’,
-    company: ‘Amazech Solutions LLC · Plano, TX’,
-    period: ‘August 2023 — December 2023’,
+    title: 'Lead — OnSked Web Application',
+    company: 'Amazech Solutions LLC · Plano, TX',
+    period: 'August 2023 — December 2023',
     bullets: [
-      ‘Built a scheduling platform for salons and spas, from requirements through launch’,
-      ‘Developed React frontend and Express API on Azure, reducing booking confirmation time by 40%’,
+      'Built a scheduling platform for salons and spas, from requirements through launch',
+      'Developed React frontend and Express API on Azure, reducing booking confirmation time by 40%',
     ],
   },
   {
-    title: ‘Summer Analyst — KYC’,
-    company: ‘Citibank · Dallas, TX’,
-    period: ‘June 2023 — August 2023’,
+    title: 'Summer Analyst — KYC',
+    company: 'Citibank · Dallas, TX',
+    period: 'June 2023 — August 2023',
     bullets: [
-      ‘Integrated UI features improving KYC verification workflows and fraud detection usability’,
-      ‘Analyzed automotive sales with Pandas and Tableau to surface strategy insights’,
-      ‘Wrote Jest unit tests for KYC identity verification features across branded card workflows’,
+      'Integrated UI features improving KYC verification workflows and fraud detection usability',
+      'Analyzed automotive sales with Pandas and Tableau to surface strategy insights',
+      'Wrote Jest unit tests for KYC identity verification features across branded card workflows',
     ],
   },
 ]
 
 const projects: TimelineEntry[] = [
   {
-    title: ‘POSED’,
-    company: ‘’,
-    period: ‘November 2025 — Present’,
+    title: 'POSED',
+    company: '',
+    period: 'November 2025 — Present',
     current: true,
     bullets: [
-      ‘Interviewed various thrift store owners and scoped an ML pricing MVP for Square Marketplace’,
-      ‘Built pricing engine using SAM3 and Ollama for real-time pricing with 90% accuracy’,
-      ‘Shipped ML-powered POS reducing per-item processing time by about 60%’,
-      ‘Replaced manual pricing with LLM-based lookup and integrated Square payments’,
-      ‘Built APIs and data pipelines for pricing, inventory tracking, and model feedback loops’,
+      'Interviewed various thrift store owners and scoped an ML pricing MVP for Square Marketplace',
+      'Built pricing engine using SAM3 and Ollama for real-time pricing with 90% accuracy',
+      'Shipped ML-powered POS reducing per-item processing time by about 60%',
+      'Replaced manual pricing with LLM-based lookup and integrated Square payments',
+      'Built APIs and data pipelines for pricing, inventory tracking, and model feedback loops',
     ],
   },
   {
-    title: ‘1051 Studios’,
-    company: ‘’,
-    period: ‘June 2017 — December 2023’,
+    title: '1051 Studios',
+    company: '',
+    period: 'June 2017 — December 2023',
     bullets: [
-      ‘Won a City of Austin pitch contest for a municipal court chatbot’,
-      ‘Built homebuying platform using Austin MLS data, reducing broker fees by 17%’,
-      ‘Designed route optimization for Austin Resource Recovery, cutting pickup times by 30%’,
-      ‘Developed CapMetro mobile app redesign in React Native, pitching to Austin\’s CTM CIO’,
+      'Won a City of Austin pitch contest for a municipal court chatbot',
+      'Built homebuying platform using Austin MLS data, reducing broker fees by 17%',
+      'Designed route optimization for Austin Resource Recovery, cutting pickup times by 30%',
+      'Developed CapMetro mobile app redesign in React Native, pitching to Austin\'s CTM CIO',
     ],
   },
 ]
 
 const skills: { category: string; items: string[] }[] = [
   {
-    category: ‘Technical’,
-    items: [‘TypeScript’, ‘Next.js’, ‘Express.js’, ‘PostgreSQL’, ‘Java’, ‘Tableau’, ‘Adobe Analytics’, ‘Git’],
+    category: 'Technical',
+    items: ['TypeScript', 'Next.js', 'Express.js', 'PostgreSQL', 'Java', 'Tableau', 'Adobe Analytics', 'Git'],
   },
   {
-    category: ‘AI/ML’,
-    items: [‘LLM Applications’, ‘SAM3’, ‘Devin AI’, ‘Model Evaluation’, ‘Pandas’],
+    category: 'AI/ML',
+    items: ['LLM Applications', 'SAM3', 'Devin AI', 'Model Evaluation', 'Pandas'],
   },
   {
-    category: ‘Product’,
-    items: [‘User Research’, ‘MVP Scoping’, ‘Roadmapping’, ‘Agile’, ‘Jira’, ‘Confluence’, ‘Figma’],
+    category: 'Product',
+    items: ['User Research', 'MVP Scoping', 'Roadmapping', 'Agile', 'Jira', 'Confluence', 'Figma'],
   },
 ]
 
