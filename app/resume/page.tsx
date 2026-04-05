@@ -21,92 +21,78 @@ interface TimelineEntry {
 
 const experience: TimelineEntry[] = [
   {
-    title: 'Application Manager — Mortgage',
-    company: 'Citibank · Dallas, TX',
-    period: 'March 2024 — Present',
+    title: ‘Digital Software Analyst, Mortgage Lending’,
+    company: ‘Citibank · Dallas, TX’,
+    period: ‘March 2024 — Present’,
     current: true,
     bullets: [
-      'Owned a 22-system mortgage portfolio, driving cross-functional collaboration across engineering, QA, and stakeholders',
-      'Led user stories and acceptance criteria for a GenAI platform, building an evaluation framework that improved accuracy by 29%',
-      'Delivering $330,000 in annual savings by optimizing archival storage on database platforms',
-      'Implemented Glassbox and Adobe Analytics to enhance digital user experience with data-driven product recommendations',
-      'Spearheaded Agentic AI and prompt engineering adoption within the SDLC, reducing engineering time by 60%',
-      'Increased large-query performance by 42% through SQL stored procedures and API endpoint optimization',
-      'Managed support escalations and client issues end-to-end, coordinating engineering resolutions that reduced downtime by 15%',
-      'Authored API specs, technical documentation, and release notes while leading agile rituals including backlog grooming and sprints',
+      ‘Owned 22 mortgage systems for 800+ users, maintaining 99.3% uptime across platforms’,
+      ‘Built Next.js dashboard for senior leadership tracking repository migration adoption and DORA metrics’,
+      ‘Redesigned MSSQL archival storage strategy, reducing infrastructure costs by $300k annually’,
+      ‘Cut delivery cycles from 3 months to 2.5 weeks, by utilizing Devin AI for SDLC procedures’,
+      ‘Scaled AI adoption across retail banking by training 50+ analysts and onboarding 6 teams’,
     ],
   },
   {
-    title: 'Founder',
-    company: 'POSED',
-    period: 'November 2025 — Present',
+    title: ‘Lead — OnSked Web Application’,
+    company: ‘Amazech Solutions LLC · Plano, TX’,
+    period: ‘August 2023 — December 2023’,
+    bullets: [
+      ‘Built a scheduling platform for salons and spas, from requirements through launch’,
+      ‘Developed React frontend and Express API on Azure, reducing booking confirmation time by 40%’,
+    ],
+  },
+  {
+    title: ‘Summer Analyst — KYC’,
+    company: ‘Citibank · Dallas, TX’,
+    period: ‘June 2023 — August 2023’,
+    bullets: [
+      ‘Integrated UI features improving KYC verification workflows and fraud detection usability’,
+      ‘Analyzed automotive sales with Pandas and Tableau to surface strategy insights’,
+      ‘Wrote Jest unit tests for KYC identity verification features across branded card workflows’,
+    ],
+  },
+]
+
+const projects: TimelineEntry[] = [
+  {
+    title: ‘POSED’,
+    company: ‘’,
+    period: ‘November 2025 — Present’,
     current: true,
     bullets: [
-      'Founded an ML-powered POS for thrift stores, defining MVP scope, user stories, and acceptance criteria from user feedback',
-      'Built an unstructured data pipeline with object detection and embedding models to generate vectorized price suggestions',
-      'Integrated product lookup via LLMs and prompt engineering to surface market-aligned pricing at checkout',
-      'Designed API endpoints and integrated Square Payments API with a custom price override system and model feedback loop',
-      'Wrote OpenAPI-compliant technical specs and architected MCP-compatible tooling for AI-assisted pricing workflows',
-      'Built the full-stack app in React, TypeScript, and PostgreSQL while managing Git, CI/CD, sprint milestones, and the product roadmap',
+      ‘Interviewed various thrift store owners and scoped an ML pricing MVP for Square Marketplace’,
+      ‘Built pricing engine using SAM3 and Ollama for real-time pricing with 90% accuracy’,
+      ‘Shipped ML-powered POS reducing per-item processing time by about 60%’,
+      ‘Replaced manual pricing with LLM-based lookup and integrated Square payments’,
+      ‘Built APIs and data pipelines for pricing, inventory tracking, and model feedback loops’,
     ],
   },
   {
-    title: 'Summer Analyst — KYC',
-    company: 'Citibank · Dallas, TX',
-    period: 'June 2023 — August 2023',
+    title: ‘1051 Studios’,
+    company: ‘’,
+    period: ‘June 2017 — December 2023’,
     bullets: [
-      'Developed UI features on Citibank Online, strengthening customer security and fraud prevention',
-      'Analyzed automotive sales datasets using Pandas and Tableau to reveal fuel-efficiency trends driving strategy',
-      'Partnered with Citi’s Voice of Employee committee to lead initiatives improving team communication',
-    ],
-  },
-  {
-    title: 'Lead — OnSked Web Application',
-    company: 'Amazech Solutions LLC · Plano, TX',
-    period: 'August 2023 — December 2023',
-    bullets: [
-      'Implemented a frontend UI using React.js and Material UI, ensuring a smooth user experience',
-      'Designed a custom backend service on Microsoft Azure using an Express.js RESTful API',
-      'Verified deliverables met quality standards and optimized data storage and retrieval for frontend responsiveness',
-    ],
-  },
-  {
-    title: 'Founder',
-    company: '1051 Studios · Austin, TX',
-    period: 'May 2017 — December 2023',
-    bullets: [
-      'Streamlined homebuying with customer rebates and identified builder pain points to drive product improvements',
-      'Developed applications for Austin Resource Recovery to improve yard waste pickup efficiency',
-      'Presented at City Hall before city officials, winning a pitch contest',
+      ‘Won a City of Austin pitch contest for a municipal court chatbot’,
+      ‘Built homebuying platform using Austin MLS data, reducing broker fees by 17%’,
+      ‘Designed route optimization for Austin Resource Recovery, cutting pickup times by 30%’,
+      ‘Developed CapMetro mobile app redesign in React Native, pitching to Austin\’s CTM CIO’,
     ],
   },
 ]
 
 const skills: { category: string; items: string[] }[] = [
   {
-    category: 'Product Management',
-    items: [
-      'Agile',
-      'User Stories',
-      'Acceptance Criteria',
-      'Backlog Grooming',
-      'Sprint Coordination',
-      'Release Tracking',
-      'Jira',
-      'Confluence',
-    ],
+    category: ‘Technical’,
+    items: [‘TypeScript’, ‘Next.js’, ‘Express.js’, ‘PostgreSQL’, ‘Java’, ‘Tableau’, ‘Adobe Analytics’, ‘Git’],
   },
   {
-    category: 'Frameworks / Languages',
-    items: ['TypeScript', 'JavaScript', 'React', 'Next.js', 'Express.js', 'Python', 'SQL', 'OpenAPI'],
+    category: ‘AI/ML’,
+    items: [‘LLM Applications’, ‘SAM3’, ‘Devin AI’, ‘Model Evaluation’, ‘Pandas’],
   },
   {
-    category: 'Tools & Infrastructure',
-    items: ['Git', 'Postman', 'PostgreSQL', 'Azure', 'Vercel', 'MCP', 'YAML/JSON'],
-  },
-  {
-    category: 'Data & Analytics',
-    items: ['Tableau', 'Pandas', 'Adobe Analytics', 'Prompt Engineering'],
+    category: ‘Product’,
+    items: [‘User Research’, ‘MVP Scoping’, ‘Roadmapping’, ‘Agile’, ‘Jira’, ‘Confluence’, ‘Figma’],
   },
 ]
 
@@ -134,7 +120,7 @@ function Timeline({ entries }: { entries: TimelineEntry[] }) {
                 {entry.period}
               </p>
             </div>
-            <p className="text-sm text-accent mt-0.5">{entry.company}</p>
+            {entry.company && <p className="text-sm text-accent mt-0.5">{entry.company}</p>}
             <ul className="mt-2 space-y-1">
               {entry.bullets.map((b, i) => (
                 <li
@@ -164,8 +150,8 @@ export default function ResumePage() {
           Application manager and product-minded engineer bridging business, AI, and delivery.
         </p>
         <a
-          href="/document_pdf.pdf"
-          download="document_pdf.pdf"
+          href="/keshav-resume.pdf"
+          download="Keshav_Raghavan_Resume.pdf"
           className="text-sm text-accent hover:underline underline-offset-2 transition-colors mt-2 inline-block"
         >
           Download PDF &darr;
@@ -184,6 +170,9 @@ export default function ResumePage() {
 
       <SectionDivider label="Experience" />
       <Timeline entries={experience} />
+
+      <SectionDivider label="Projects" />
+      <Timeline entries={projects} />
 
       <SectionDivider label="Skills" />
       <div className="space-y-4">
